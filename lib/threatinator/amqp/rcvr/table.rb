@@ -64,9 +64,9 @@ module Threatinator
       end
 
       class IPTable < Table
-        def new_data()
-          @db.insert()
-
+        def subscribe
+          raise PreReleaseError, "IPTable class Not implemented"
+          exit(1)
         end
       end
 

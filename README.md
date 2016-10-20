@@ -1,5 +1,7 @@
 # Threatinator::Amqp::Rcvr
 
+PRERELEASE: Not published into gemspace
+
 This is an AMQP Client (reciever) for the Threatinator raw AMQP data feeds. It is basically a AMQP -> SQL driver.
 
 ## Installation
@@ -46,4 +48,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/shadow
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
