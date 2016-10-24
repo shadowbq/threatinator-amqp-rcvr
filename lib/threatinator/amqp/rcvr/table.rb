@@ -52,7 +52,7 @@ module Threatinator
             dataset["fqdns"].each do |v|
               dnslist << v
               begin
-                @db.insert(dataset["import_time"], host, dataset["feed_provider"], dataset["feed_name"])
+                @db.insert(dataset["import_time"], v, dataset["feed_provider"], dataset["feed_name"])
               rescue SQLite3::ConstraintException
                 print "-" if Threatinator::Amqp::Rcvr::Settings.verbose
               end
@@ -65,8 +65,22 @@ module Threatinator
 
       class IPTable < Table
         def subscribe
-          raise PreReleaseError, "IPTable class Not implemented"
-          exit(1)
+
+          list = []
+          puts "#[threatinator-ampq-rcvr] #{self.class } - amqp subscribing" if Threatinator::Amqp::Rcvr::Settings.verbose
+          @q.subscribe(:block => true) do |delivery_info, properties, body|
+            dataset = JSON.parse(body)
+            dataset["ipv4s"].each do |v|
+              list << v
+              begin
+                @db.insert(dataset["import_time"], v, dataset["feed_provider"], dataset["feed_name"])
+              rescue SQLite3::ConstraintException
+                print "-" if Threatinator::Amqp::Rcvr::Settings.verbose
+              end
+            end
+            print "." if Threatinator::Amqp::Rcvr::Settings.verbose
+          end
+
         end
       end
 

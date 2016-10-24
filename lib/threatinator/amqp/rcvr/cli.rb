@@ -26,12 +26,12 @@ module Threatinator
 
           opt.on("-f", "--fqdns", "Store FQDNS") do
             options[:fqdns] = true
-            Threatinator::Amqp::Rcvr::Settings.sql_table_name = "ipv4"
+            Threatinator::Amqp::Rcvr::Settings.sql_table_name = "fqdns"
           end
 
           opt.on("-i", "--ips", "Store IPv4") do
             options[:ips] = true
-            Threatinator::Amqp::Rcvr::Settings.sql_table_name = "fqdns"
+            Threatinator::Amqp::Rcvr::Settings.sql_table_name = "ipv4"
           end
 
           opt.separator ""
