@@ -8,6 +8,8 @@ module Threatinator
     class CLI
 
       def self.invoke
+        puts "ARGV #{ARGV.size}"
+        puts ARGV.to_s
         self.new
       end
 
