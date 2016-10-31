@@ -3,7 +3,7 @@ require 'uri'
 require "bunny"
 require 'sqlite3'
 require 'json'
-require 'pry'
+# require 'pry'
 
 
 module Threatinator
