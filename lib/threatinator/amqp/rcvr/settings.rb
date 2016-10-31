@@ -43,12 +43,18 @@ module Threatinator
           @@registered_settings
         end
 
+        # Threatinator uses "threatinator." + event.type.to_s
+        # VALID_TYPES = [:c2, :attacker, :malware_host, :spamming, :scanning, :phishing]
+        # amqp_routing_key :routing_key=>"threatinator.malware_host"
+        # '*' (star) can substitute for exactly one word.
+        # '#' (hash) can substitute for zero or more words.
+
         def self.reset!
           self.config do
             verbose false
             amqp_hostname "127.0.0.1"
             amqp_binding_topic "threats"
-            amqp_routing_key "#"
+            amqp_routing_key "threatinator.#"
             sql_table_name "fqdns"
             sql_file_location "/tmp/threat.db"
           end

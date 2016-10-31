@@ -47,7 +47,7 @@ module Threatinator
             Threatinator::Amqp::Rcvr::Settings.amqp_binding_topic = value
           end
 
-          opt.on("-R", "--amqp-routekey=", "AMQP Routekey","  Default: #{Threatinator::Amqp::Rcvr::Settings.amqp_routing_key}") do |value|
+          opt.on("-R", "--amqp-routekey=", "AMQP Routekey","Default: #{Threatinator::Amqp::Rcvr::Settings.amqp_routing_key}",  "[#, threatinator.#, threatinator.c2, threatinator.attacker, threatinator.malware_host, threatinator.spamming, threatinator.scanning, threatinator.phishing]") do |value|
             Threatinator::Amqp::Rcvr::Settings.amqp_routing_key = value
           end
 
