@@ -5,7 +5,7 @@ require 'rubygems'
 require 'bundler'
 Bundler.setup :default, :test
 
-require 'pry'
+#require 'pry'
 
 require 'pathname'
 SPEC_ROOT = Pathname.new(__FILE__).dirname.expand_path
