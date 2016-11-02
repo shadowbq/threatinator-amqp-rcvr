@@ -1,6 +1,10 @@
 # Threatinator::Amqp::Rcvr
 
-PRERELEASE: Not published into gemspace
+## Code Status
+
+[![Build Status](https://travis-ci.org/shadowbq/threatinator-amqp-rcvr.svg?branch=master)](https://travis-ci.org/shadowbq/threatinator-amqp-rcvr)
+[![Gem Version](https://badge.fury.io/rb/threatinator-amqp-rcvr.png)](http://badge.fury.io/rb/threatinator-amqp-rcvr)
+[![Tags](https://img.shields.io/github/tag/shadowbq/threatinator-amqp-rcvr.svg)](https://github.com/shadowbq/threatinator-amqp-rcvr/releases)
 
 This is an AMQP Client (reciever) for the Threatinator raw AMQP data feeds. It is basically a AMQP -> SQL driver.
 
